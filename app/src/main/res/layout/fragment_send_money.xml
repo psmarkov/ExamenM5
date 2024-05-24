@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/T2_Azul_Claro"
+    tools:context=".View.SendMoney">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_env_Envia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/T2_Azul_Claro"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back_icon"
+        app:title="@string/home_boton_Enviar"
+        app:titleTextColor="#FFFFFF" />
+
+    <TableLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="355dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_env_Envia">
+
+        <TableRow
+            android:layout_width="286dp"
+            android:layout_height="121dp">
+
+            <ImageView
+                android:id="@+id/img_Ing_usuaario"
+                android:layout_width="117dp"
+                android:layout_height="92dp"
+                app:srcCompat="@drawable/profie_y" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_Ing_Usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yara Khalil"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:id="@+id/txt_Ing_email"
+                    android:layout_width="207dp"
+                    android:layout_height="wrap_content"
+                    android:text="yara_khalil@gmail.com"
+                    android:textColor="@color/naranjo_plomo_letras"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsttrLayoutFondo"
+        android:layout_width="0dp"
+        android:layout_height="656dp"
+        android:background="@drawable/rectangle2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableLayout
+            android:id="@+id/tableLayout4"
+            android:layout_width="0dp"
+            android:layout_height="373dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="29dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="35dp">
+
+                <TextView
+                    android:id="@+id/txt_env_CantidadTransferir"
+                    android:layout_width="186dp"
+                    android:layout_height="41dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/send_txt_cantidad"
+                    android:textSize="15dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/edt_env_CantidadTransferir"
+                    android:layout_width="339dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/borde_redondo_2"
+                    android:ems="10"
+                    android:hint="@string/request_edt_cantidad"
+                    android:inputType="text"
+                    android:textColorHint="@color/T2_Azul_Claro"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txt_env_Nota2"
+                    android:layout_width="329dp"
+                    android:layout_height="50dp"
+                    android:gravity="bottom|center_vertical"
+                    android:text="@string/request_txt_nota"
+                    android:textSize="15dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/edt_env_Descripcion2"
+                    android:layout_width="339dp"
+                    android:layout_height="172dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:ems="10"
+                    android:gravity="center_horizontal|center_vertical"
+
+                    android:hint="@string/request_edt_nota"
+                    android:inputType="text"
+                    android:textColorHint="@color/T2_Azul_Claro"
+                    android:textSize="16sp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btn_ing_envia"
+            android:layout_width="364dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="52dp"
+            android:backgroundTint="@color/T2_Azul_Claro"
+            android:text="@string/home_boton_Enviar"
+            app:icon="@drawable/send_icon"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

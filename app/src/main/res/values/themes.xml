@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EXAMEN_M5_PaulaMarkov" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.EXAMEN_M5_PaulaMarkov" parent="Base.Theme.EXAMEN_M5_PaulaMarkov" />
+
+    <style name="Theme.nuevoTheme" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/T2_Azul</item>
+        <item name="colorPrimaryVariant">@color/T2_Azul_Oscuro</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/T2_Morado</item>
+        <item name="colorSecondaryVariant">@color/T2_Morado_Claro</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.LoginPage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="486dp"
+        android:background="@drawable/ola2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_readme"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:foregroundGravity="bottom"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout2"
+            app:srcCompat="@drawable/buho" />
+
+
+        <TextView
+            android:id="@+id/txt_subtitulo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="185dp"
+            android:text="@string/login_page_subtitulo1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="352dp"
+        android:layout_height="277dp"
+        android:layout_marginTop="280dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_email"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:text="@string/login_page_Email_txt"
+            android:textColor="@color/T2_Letras"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/edt_EmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/borde_redondo_2"
+
+            android:ems="10"
+            android:hint="@string/login_page_Email_edt"
+            android:inputType="textEmailAddress"
+            android:linksClickable="false"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/txtPasword"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:text="@string/login_page_pass_txt"
+            android:textColor="@color/T2_Letras"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/edt_Password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/borde_redondo_2"
+            android:drawableRight="@android:drawable/ic_menu_view"
+            android:ems="10"
+            android:hint="@string/login_page_pass_edt"
+            android:inputType="textPassword"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/txt_mensaje"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="@string/login_page_mensaje"
+            android:textAlignment="textEnd"
+            android:textColor="@color/T2_Azul_Claro"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="345dp"
+        android:layout_height="43dp"
+        android:text="@string/login_page_boton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline8"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <TextView
+        android:id="@+id/txtRegistro"
+        android:layout_width="345dp"
+        android:layout_height="34dp"
+        android:text="@string/login_page_subtitulo2"
+        android:textAlignment="center"
+        android:textColor="@color/naranjo_oscuro_barra"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.187" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="-36dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

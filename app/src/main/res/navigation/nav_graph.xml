@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginSignupPage">
+
+    <fragment
+        android:id="@+id/loginSignupPage"
+        android:name="com.example.examen_m5_paulamarkov.View.LoginSignupPage"
+        android:label="fragment_login_signup_page"
+        tools:layout="@layout/fragment_login_signup_page" >
+        <action
+            android:id="@+id/action_loginSignupPage_to_loginPage"
+            app:destination="@id/loginPage" />
+        <action
+            android:id="@+id/action_loginSignupPage_to_signupPage"
+            app:destination="@id/signupPage" />
+        <action
+            android:id="@+id/action_loginSignupPage_to_README"
+            app:destination="@id/README" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPage"
+        android:name="com.example.examen_m5_paulamarkov.View.LoginPage"
+        android:label="fragment_login_page"
+        tools:layout="@layout/fragment_login_page" >
+        <action
+            android:id="@+id/action_loginPage_to_loginSignupPage"
+            app:destination="@id/loginSignupPage" />
+        <action
+            android:id="@+id/action_loginPage_to_signupPage"
+            app:destination="@id/signupPage" />
+        <action
+            android:id="@+id/action_loginPage_to_signupPage2"
+            app:destination="@id/signupPage" />
+        <action
+            android:id="@+id/action_loginPage_to_homePage"
+            app:destination="@id/homePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupPage"
+        android:name="com.example.examen_m5_paulamarkov.View.SignupPage"
+        android:label="fragment_signup_page"
+        tools:layout="@layout/fragment_signup_page" >
+        <action
+            android:id="@+id/action_signupPage_to_loginSignupPage"
+            app:destination="@id/loginSignupPage" />
+        <action
+            android:id="@+id/action_signupPage_to_loginPage"
+            app:destination="@id/loginPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.example.examen_m5_paulamarkov.View.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePage_to_requestMoney"
+            app:destination="@id/requestMoney" />
+        <action
+            android:id="@+id/action_homePage_to_sendMoney"
+            app:destination="@id/sendMoney" />
+        <action
+            android:id="@+id/action_homePage_to_profilePage"
+            app:destination="@id/profilePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestMoney"
+        android:name="com.example.examen_m5_paulamarkov.View.RequestMoney"
+        android:label="fragment_request_money"
+        tools:layout="@layout/fragment_request_money" >
+        <action
+            android:id="@+id/action_requestMoney_to_homePage"
+            app:destination="@id/homePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoney"
+        android:name="com.example.examen_m5_paulamarkov.View.SendMoney"
+        android:label="fragment_send_money"
+        tools:layout="@layout/fragment_send_money" >
+        <action
+            android:id="@+id/action_sendMoney_to_homePage"
+            app:destination="@id/homePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilePage"
+        android:name="com.example.examen_m5_paulamarkov.View.ProfilePage"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile_page" >
+        <action
+            android:id="@+id/action_profilePage_to_homePage"
+            app:destination="@id/homePage" />
+    </fragment>
+    <activity
+        android:id="@+id/README"
+        android:name="com.example.examen_m5_paulamarkov.View.README"
+        android:label="activity_readme"
+        tools:layout="@layout/activity_readme" />
+</navigation>

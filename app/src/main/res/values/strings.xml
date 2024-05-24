@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">EXAMEN_M5_PaulaMarkov</string>
+
+
+    <string name="splash_titulo">Alke Wallet</string>
+
+    <string name="login_signup_subtitulo">El lugar más seguro para tu dinero</string>
+    <string name="login_signup_boton">Crear cuenta nueva</string>
+
+    <string name="login_page_subtitulo1">Loguea y empiza a transferir !</string>
+    <string name="login_page_Email_txt">Email</string>
+    <string name="login_page_Email_edt">Ingresa tu email</string>
+    <string name="login_page_pass_txt">Contraseña</string>
+    <string name="login_page_pass_edt">Ingresa tu contraseña</string>
+    <string name="login_page_mensaje">Olvidaste tu contraseña?</string>
+    <string name="login_page_boton">Login</string>
+    <string name="login_page_subtitulo2">Crea una nueva cuenta</string>
+
+    <string name="signup_subtitulo1">Registrarse y empezar a transferir !</string>
+
+    <string name="signup_nombre_txt">Nombre</string>
+    <string name="signup_nombre_edt">Ingresa tu Nombre</string>
+    <string name="signup_apellido_txt">Apellido</string>
+    <string name="signup_apellido_edt">Ingresa tu Apellido</string>
+    <string name="signup_repass_txt">Reingresar Contraseña</string>
+
+    <string name="home_subtitulo1">Saldo Cuenta Alkemy</string>
+    <string name="home_subtitulo2">Saldo disponible</string>
+    <string name="home_boton_Enviar">Enviar dinero</string>
+    <string name="home_boton_Ingresar">Ingresar dinero</string>
+    <string name="home_txt_transaccion">Ultimas transacciones</string>
+    <string name="home_txt_usuario">Hola, Amanda!</string>
+
+    <string name="home_empty_mensaje">No hay transacciones registradas!</string>
+
+    <string name="request_txt_cantidad">Cantidad a Ingresar</string>
+    <string name="request_edt_cantidad">12.50</string>
+    <string name="request_txt_nota">Notas de Transferencia</string>
+    <string name="request_edt_nota">Agrega Notas de Transferncia  (Opcional)</string>
+
+    <string name="send_txt_cantidad">Cantidad a Transferir</string>
+
+    <string name="profile_txt_toolbar">Mi Perfil</string>
+    <string name="profile_btn_informacion">Mi Informacion</string>
+    <string name="profile_btn_tarjetas">Mis Tarjetas</string>
+    <string name="profile_btn_Opciones">Opciones</string>
+    <string name="profile_btn_ayuda">Centro de ayuda</string>
+
+    <string name="readme_btn_atras">Volver a Alke Wallet</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="lorem_ipsum">aaaaaaaa</string>
+
+
+    <string name="readme">
+       1. La Aplicacion parte con la Activity Slash Screen \n
+\n
+2. Se usa Fragmentos par toda la aplicacion\n
+Activity Main es la Activity que posee el contenedor de fragmentos\n
+\n
+3. La Aplicacion posee 2 ViewModel desarrollados, que validan los datos\n
+de sus respectivos fragmentos, estos son :\n
+\n
+LoginPage_vm\n
+SignupPage_vm\n
+\n
+4. Tiene un Recycler View en funcionamiento con su respctivo Adapter,\n
+y se encuentra en el fragmento\n
+\n
+HomePage\n
+\n
+Este no se a activado con ViewModel aun en desarrollo\n
+\n
+5. El Fragmento HomePage navega a :\n
+\n
+presionando el icono de la foto del usuario se abre la pagina de Perfil\n
+presionando sobre cada boton abre sus respectivos fragmentos\n
+\n
+6. La aplicacion posee traducccion a Ingles detro de la carpeta Strings\n
+7. Posee un thema y colores\n
+8. Posee un Readme\n
+  </string>
+    <string name="saludo1">Bienvenido al multilengiaje</string>
+    <string name="login_signup_subtitulo2">" Ya tienes una cuenta ?"</string>
+
+</resources>

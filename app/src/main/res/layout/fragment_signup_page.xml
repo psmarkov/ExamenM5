@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.SignupPage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="287dp"
+        android:background="@drawable/ola2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/img_readme"
+            android:layout_width="395dp"
+            android:layout_height="136dp"
+            android:layout_marginBottom="67dp"
+            android:foregroundGravity="bottom"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.129"
+            app:srcCompat="@drawable/buho" />
+
+        <TextView
+            android:id="@+id/txt_subtitulo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="140dp"
+            android:text="@string/signup_subtitulo1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="362dp"
+        android:layout_height="457dp"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnAtras"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout2">
+
+        <TextView
+            android:id="@+id/txtRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+
+            android:text="@string/signup_nombre_txt"
+            android:textColor="@color/T2_Morado"
+
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edt_Nombre"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/borde_redondo_2"
+
+            android:ems="10"
+            android:hint="@string/signup_nombre_edt"
+            android:inputType="text"
+            android:linksClickable="false"
+            android:textAlignment="textStart"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/txt_Apellido"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:gravity="center_vertical"
+
+            android:text="@string/signup_apellido_txt"
+            android:textColor="@color/T2_Morado"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edt_Apellido"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/borde_redondo_2"
+
+            android:ems="10"
+            android:hint="@string/signup_apellido_edt"
+            android:inputType="text"
+            android:linksClickable="false"
+            android:textAlignment="textStart"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/txt_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/login_page_Email_txt"
+
+            android:textColor="@color/T2_Morado"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edt_EmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/borde_redondo_2"
+
+            android:ems="10"
+            android:hint="@string/login_page_Email_edt"
+            android:inputType="textEmailAddress"
+            android:linksClickable="false"
+            android:textAlignment="textStart"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtPasword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/login_page_pass_txt"
+
+            android:textColor="@color/T2_Morado"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edt_Password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/borde_redondo_2"
+            android:drawableRight="@android:drawable/ic_menu_view"
+            android:ems="10"
+            android:hint="@string/login_page_pass_edt"
+            android:inputType="textPassword"
+            android:textAlignment="textStart"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txt_re_Pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/signup_repass_txt"
+
+            android:textColor="@color/T2_Morado"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edt_re_Pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/borde_redondo_2"
+            android:drawableRight="@android:drawable/ic_menu_view"
+            android:ems="10"
+            android:hint="@string/signup_repass_txt"
+            android:inputType="textPassword"
+            android:textAlignment="textStart"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/txt_mensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_page_mensaje"
+            android:textAlignment="textEnd"
+            android:textColor="@color/T2_Azul_Claro"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAtras"
+        android:layout_width="353dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="56dp"
+        android:text="@string/login_signup_boton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
