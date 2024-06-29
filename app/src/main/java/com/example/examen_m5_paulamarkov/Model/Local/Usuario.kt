@@ -1,4 +1,4 @@
-package com.example.examen_m5_paulamarkov.Model
+package com.example.examen_m5_paulamarkov.Model.Local
 
 data class Usuario(
 

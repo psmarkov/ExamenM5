@@ -5,56 +5,121 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.examen_m5_paulamarkov.Model.Local.TransaccionItem
+import com.example.examen_m5_paulamarkov.Model.Network.Data.Transaction.SendMoneyEnvia
+import com.example.examen_m5_paulamarkov.Model.Network.Data.User.UsuarioLogEnviaNet
+import com.example.examen_m5_paulamarkov.Model.Network.Retrofit.RetrofitClient
 import com.example.examen_m5_paulamarkov.R
+import com.example.examen_m5_paulamarkov.ViewModel.SendMoney_vm
+import com.example.examen_m5_paulamarkov.ViewModel.SignupPage_vm
+import com.example.examen_m5_paulamarkov.ViewModel.ToastCallback
+import com.example.examen_m5_paulamarkov.databinding.FragmentSendMoneyBinding
+import com.example.examen_m5_paulamarkov.databinding.FragmentSignupPageBinding
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SendMoney.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SendMoney : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SendMoney : Fragment(), ToastCallback {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var miLista : MutableList<TransaccionItem> = mutableListOf()
+
+
+    // retrofit Cliente
+    private val networkService2 = RetrofitClient.getRetrofit2()
+
+    // ViewModel y Binding
+    private val mimv3: SendMoney_vm by viewModels()
+    private lateinit var smBinding: FragmentSendMoneyBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_send_money, container, false)
+
+        // Inflar la vista
+        smBinding= FragmentSendMoneyBinding.inflate(inflater,container,false)
+
+        smBinding.btnIngEnvia.setOnClickListener {
+
+
+            val cantirdadSM = smBinding.edtEnvCantidadTransferir.toString()
+            val descripcionSM = smBinding.edtEnvDescripcion2.toString()
+
+
+            // establecer call bal
+            mimv3?.callback = this
+
+            // ENVIO DATOS A VIEW MODEL
+            mimv3.recibeDatosSM(cantirdadSM,descripcionSM)
+
+            mimv3.valida.observe(viewLifecycleOwner, Observer { valida->
+                if (valida == true) {
+
+
+                    //CONECTO CON LA API PARA IR POR EL TOKEN
+                    conetaAPI()
+
+
+                    //Toast.makeText(requireContext(), "Cuenta Creada", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_sendMoney_to_homePage)
+
+                }else {
+                    Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+        }
+
+
+        return smBinding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SendMoney.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SendMoney().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun conetaAPI() {
+
+        // CREAR transaccion - ENVIAR DATOS DE transaccion Y TOKEN
+
+
+        lifecycleScope.launch {
+
+            val objSendMoneyEnvia = SendMoneyEnvia(
+
+                amount = 500,
+                concept ="Mi prueba2",
+                date = "2022-10-26 15:00:00",
+                type ="payment",
+                accountId = 1,
+                userId = 4 ,
+                toaccountid = 2
+            )
+
+
+            //val usuarioLogNet = networkService2.fetchNewUsu("Bearer $objKen", objUsuarioLogoNet)
+            val sendMoneyEnvia = networkService2.fetchTransEnvia(objSendMoneyEnvia)
+
+            android.util.Log.e("++++++++++ MIS DATOS ********", sendMoneyEnvia.toString())
+
+            // MUESTRO POR PANTALLA EL DATO DE LA API
+            //spBinding.Nombre.text = usuarioLogNet.body()?.first_name
+
+            val aaa = sendMoneyEnvia.body()?.amount
+            Toast.makeText(requireContext(), "dato enviado a la api $aaa", Toast.LENGTH_SHORT).show()
+
+        }
     }
+
+
+    override fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+
+        //Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+
 }

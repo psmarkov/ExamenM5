@@ -46,8 +46,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="352dp"
-        android:layout_height="277dp"
+        android:layout_width="376dp"
+        android:layout_height="275dp"
         android:layout_marginTop="280dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,6 +104,7 @@
             android:textAlignment="textEnd"
             android:textColor="@color/T2_Azul_Claro"
             android:textSize="15dp" />
+
     </LinearLayout>
 
     <Button

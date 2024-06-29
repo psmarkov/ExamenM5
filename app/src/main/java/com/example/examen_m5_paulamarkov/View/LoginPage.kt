@@ -9,15 +9,23 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import com.example.examen_m5_paulamarkov.Model.Network.Data.Authentication.AuthentificarNet
+import com.example.examen_m5_paulamarkov.Model.Network.Retrofit.RetrofitClient
+import com.example.examen_m5_paulamarkov.Model.Token.objKen
 import com.example.examen_m5_paulamarkov.R
 import com.example.examen_m5_paulamarkov.ViewModel.LoginPage_vm
 import com.example.examen_m5_paulamarkov.ViewModel.ToastCallback
 import com.example.examen_m5_paulamarkov.databinding.FragmentLoginPageBinding
+import kotlinx.coroutines.launch
 
 
 class LoginPage : Fragment(), ToastCallback {
 
+    // retrofit Cliente
+    private val networkService = RetrofitClient.getRetrofit()
+   
 
     private val mimv: LoginPage_vm by viewModels()
     private lateinit var lpBinding:FragmentLoginPageBinding
@@ -69,6 +77,11 @@ class LoginPage : Fragment(), ToastCallback {
 
                 if (valido == true) {
 
+                    //CONECTO CON LA API PARA IR POR EL TOKEN
+                    conetaAPI()
+
+
+
                     view?.findNavController()?.navigate(R.id.action_loginPage_to_homePage)
 
 
@@ -88,9 +101,57 @@ class LoginPage : Fragment(), ToastCallback {
     }
 
 
+
+    private fun conetaAPI(){
+
+            // AUTENTIFICARSE - ENVIAR EMAIL Y PASS - RECIBIR TOKEN - RECIBIR USUARIO ACTUAL
+            lifecycleScope.launch {
+
+                /*
+               // enviar datos ingresados en el view
+               val email2 = lpBinding.edtEmailAddress.text.toString()
+               val pass2 = lpBinding.edtPassword.text.toString()
+               Toast.makeText(requireContext(), email2, Toast.LENGTH_SHORT).show()
+               Toast.makeText(requireContext(), pass2, Toast.LENGTH_SHORT).show()
+
+
+               val objAutentificarNet = AuthentificarNet(
+                   email = email2,
+                   password = pass2
+               )
+
+                */
+
+                    val objAutentificarNet = AuthentificarNet(
+                        email = "juanperaz@example.com",
+                        password = "abc123"
+                    )
+
+                    // OBTENGO EL TOKEN ----------------------------
+                    val authToken = networkService.fetchTokenNet(objAutentificarNet)
+                    val token = authToken.body()?.accessToken.toString()
+
+                    objKen = token
+
+                    //lpBinding.txtToken.text = token
+                    //Toast.makeText(requireContext(), "$token", Toast.LENGTH_SHORT).show()
+
+                    // CON EL TOKEN PIDO DATOS A LA API
+                    val usuarioLogNet = networkService.fetchAuthMe("Bearer $token")
+
+                    // MUESTRO POR PANTALLA EL DATO DE LA API
+                    //lpBinding.Nombre.text = usuarioLogNet.body()?.first_name
+                    //val aaa = usuarioLogNet.body()?.first_name
+
+                    //Toast.makeText(requireContext(), "$aaa", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
     override fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 
         //Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
 }
