@@ -21,7 +21,7 @@ import com.example.examen_m5_paulamarkov.databinding.FragmentSignupPageBinding
 import kotlinx.coroutines.launch
 
 
-class SignupPage : Fragment(), ToastCallback {
+class SignupPage : Fragment() {
 
     // retrofit Cliente
     private val networkService2 = RetrofitClient.getRetrofit2()
@@ -48,7 +48,7 @@ class SignupPage : Fragment(), ToastCallback {
             val repassSP = spBinding.edtRePass.text.toString()
 
             // establecer call bal
-            mimv2?.callback = this
+            //mimv2?.callback = this
 
             // ENVIO DATOS A VIEW MODEL
             mimv2.recibeDatosSP(nombreSP,apellidoSP,emailSP,passSP,repassSP)
@@ -66,7 +66,8 @@ class SignupPage : Fragment(), ToastCallback {
                 findNavController().navigate(R.id.action_signupPage_to_loginPage)
 
                 }else {
-                    Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
+                    val a = 0
+                   // Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -103,18 +104,18 @@ class SignupPage : Fragment(), ToastCallback {
                 // MUESTRO POR PANTALLA EL DATO DE LA API
                 //spBinding.Nombre.text = usuarioLogNet.body()?.first_name
 
-                val aaa = usuarioLogNet.body()?.first_name
-                Toast.makeText(requireContext(), "$aaa", Toast.LENGTH_SHORT).show()
+                //val aaa = usuarioLogNet.body()?.first_name
+                //Toast.makeText(requireContext(), "$aaa", Toast.LENGTH_SHORT).show()
 
             }
     }
 
 
 
-    override fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+   // override fun showToast(message: String) {
+    //    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 
         //Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
+   // }
 
 }

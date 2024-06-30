@@ -5,28 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Spinner
-import android.widget.Toast
+
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+
 import com.example.examen_m5_paulamarkov.Model.Local.TransaccionItem
 import com.example.examen_m5_paulamarkov.Model.Network.Data.Transaction.SendMoneyEnvia
-import com.example.examen_m5_paulamarkov.Model.Network.Data.User.UsuarioLogEnviaNet
+
 import com.example.examen_m5_paulamarkov.Model.Network.Retrofit.RetrofitClient
 import com.example.examen_m5_paulamarkov.R
 import com.example.examen_m5_paulamarkov.ViewModel.SendMoney_vm
-import com.example.examen_m5_paulamarkov.ViewModel.SignupPage_vm
+
 import com.example.examen_m5_paulamarkov.ViewModel.ToastCallback
 import com.example.examen_m5_paulamarkov.databinding.FragmentSendMoneyBinding
-import com.example.examen_m5_paulamarkov.databinding.FragmentSignupPageBinding
+
 import kotlinx.coroutines.launch
 
 
-class SendMoney : Fragment(), ToastCallback {
+class SendMoney : Fragment() {
 
     private var miLista : MutableList<TransaccionItem> = mutableListOf()
 
@@ -54,7 +52,7 @@ class SendMoney : Fragment(), ToastCallback {
 
 
             // establecer call bal
-            mimv3?.callback = this
+            //mimv3?.callback = this
 
             // ENVIO DATOS A VIEW MODEL
             mimv3.recibeDatosSM(cantirdadSM,descripcionSM)
@@ -71,7 +69,8 @@ class SendMoney : Fragment(), ToastCallback {
                     findNavController().navigate(R.id.action_sendMoney_to_homePage)
 
                 }else {
-                    Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
+                    val a = 1
+                   //Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -90,7 +89,7 @@ class SendMoney : Fragment(), ToastCallback {
 
             val objSendMoneyEnvia = SendMoneyEnvia(
 
-                amount = 500,
+                amount = "500",
                 concept ="Mi prueba2",
                 date = "2022-10-26 15:00:00",
                 type ="payment",
@@ -108,18 +107,18 @@ class SendMoney : Fragment(), ToastCallback {
             // MUESTRO POR PANTALLA EL DATO DE LA API
             //spBinding.Nombre.text = usuarioLogNet.body()?.first_name
 
-            val aaa = sendMoneyEnvia.body()?.amount
-            Toast.makeText(requireContext(), "dato enviado a la api $aaa", Toast.LENGTH_SHORT).show()
+            //val aaa = sendMoneyEnvia.body()?.amount
+            //Toast.makeText(requireContext(), "dato enviado a la api $aaa", Toast.LENGTH_SHORT).show()
 
         }
     }
 
 
-    override fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    //override fun showToast(message: String) {
+    //7    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 
-        //Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
+
+   // }
 
 
 }

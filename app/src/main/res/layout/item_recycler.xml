@@ -24,9 +24,9 @@
 
                 <ImageView
                     android:id="@+id/it_img"
-                    android:layout_width="wrap_content"
+                    android:layout_width="63dp"
                     android:layout_height="60dp"
-                    app:srcCompat="@drawable/group1" />
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
 
                 <LinearLayout
                     android:layout_width="255dp"

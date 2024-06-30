@@ -21,7 +21,7 @@ import com.example.examen_m5_paulamarkov.databinding.FragmentLoginPageBinding
 import kotlinx.coroutines.launch
 
 
-class LoginPage : Fragment(), ToastCallback {
+class LoginPage : Fragment(){
 
     // retrofit Cliente
     private val networkService = RetrofitClient.getRetrofit()
@@ -66,7 +66,7 @@ class LoginPage : Fragment(), ToastCallback {
             val pass1 = lpBinding.edtPassword.text.toString()
 
             // establecer call bal
-            mimv?.callback = this
+            //mimv?.callback = this
 
             // Si el resultado de la validacion no es falso es decir los datos
             // son validos entonces abre el fragmento siguiente
@@ -86,7 +86,8 @@ class LoginPage : Fragment(), ToastCallback {
 
 
                 } else {
-                    Toast.makeText(requireContext(), "Usuario no valido", Toast.LENGTH_SHORT).show()
+                    val a = 0
+                   // Toast.makeText(requireContext(), "Usuario no valido", Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -148,10 +149,10 @@ class LoginPage : Fragment(), ToastCallback {
 
     }
 
-    override fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+   // override fun showToast(message: String) {
+   //     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 
         //Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
+  //  }
 
 }

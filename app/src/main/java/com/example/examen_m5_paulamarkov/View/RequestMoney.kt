@@ -14,14 +14,14 @@ import com.example.examen_m5_paulamarkov.Model.Network.Data.Transaction.SendMone
 import com.example.examen_m5_paulamarkov.Model.Network.Retrofit.RetrofitClient
 import com.example.examen_m5_paulamarkov.R
 import com.example.examen_m5_paulamarkov.ViewModel.RequestMoney_vm
-import com.example.examen_m5_paulamarkov.ViewModel.SendMoney_vm
 import com.example.examen_m5_paulamarkov.ViewModel.ToastCallback
+
 import com.example.examen_m5_paulamarkov.databinding.FragmentRequestMoneyBinding
-import com.example.examen_m5_paulamarkov.databinding.FragmentSendMoneyBinding
+
 import kotlinx.coroutines.launch
 
 
-class RequestMoney : Fragment(), ToastCallback {
+class RequestMoney : Fragment(){
 
     // retrofit Cliente
     private val networkService2 = RetrofitClient.getRetrofit2()
@@ -45,7 +45,7 @@ class RequestMoney : Fragment(), ToastCallback {
 
 
             // establecer call bal
-            mimv4?.callback = this
+            //mimv4?.callback = this
 
             // ENVIO DATOS A VIEW MODEL
             mimv4.recibeDatosSM(cantirdadRM,descripcionRM)
@@ -62,7 +62,8 @@ class RequestMoney : Fragment(), ToastCallback {
                     findNavController().navigate(R.id.action_requestMoney_to_homePage)
 
                 }else {
-                    Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
+                    val a= 0
+                   // Toast.makeText(requireContext(), "Ingrese todos los datos", Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -81,7 +82,7 @@ class RequestMoney : Fragment(), ToastCallback {
 
             val objSendMoneyEnvia = SendMoneyEnvia(
 
-                amount = 500,
+                amount = "500",
                 concept ="Mi prueba2",
                 date = "2022-10-26 15:00:00",
                 type ="topup",
@@ -99,19 +100,19 @@ class RequestMoney : Fragment(), ToastCallback {
             // MUESTRO POR PANTALLA EL DATO DE LA API
             //spBinding.Nombre.text = usuarioLogNet.body()?.first_name
 
-            val aaa = sendMoneyEnvia.body()?.amount
-            val bbb = sendMoneyEnvia.body()?.concept
-            Toast.makeText(requireContext(), "dato enviado a la api \n $aaa \n $bbb", Toast.LENGTH_SHORT).show()
+           // val aaa = sendMoneyEnvia.body()?.amount
+           // val bbb = sendMoneyEnvia.body()?.concept
+           // Toast.makeText(requireContext(), "dato enviado a la api \n $aaa \n $bbb", Toast.LENGTH_SHORT).show()
 
         }
     }
 
 
-    override fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    //override fun showToast(message: String) {
+     //   Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 
         //Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
+   // }
 
 
 }
