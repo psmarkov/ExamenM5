@@ -35,8 +35,8 @@
             android:id="@+id/action_loginPage_to_signupPage2"
             app:destination="@id/signupPage" />
         <action
-            android:id="@+id/action_loginPage_to_homePage"
-            app:destination="@id/homePage" />
+            android:id="@+id/action_loginPage_to_homePage2"
+            app:destination="@id/homePage2" />
     </fragment>
     <fragment
         android:id="@+id/signupPage"
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/homePage"
-        android:name="com.example.examen_m5_paulamarkov.View.HomePage"
+        android:name="com.example.examen_m5_paulamarkov.View.HomePageoConApi"
         android:label="fragment_home_page"
         tools:layout="@layout/fragment_home_page" >
         <action
@@ -73,6 +73,12 @@
         <action
             android:id="@+id/action_requestMoney_to_homePage"
             app:destination="@id/homePage" />
+        <action
+            android:id="@+id/action_requestMoney_to_homePage2"
+            app:destination="@id/homePage2" />
+        <action
+            android:id="@+id/action_requestMoney_to_homePage22"
+            app:destination="@id/homePage2" />
     </fragment>
     <fragment
         android:id="@+id/sendMoney"
@@ -82,6 +88,12 @@
         <action
             android:id="@+id/action_sendMoney_to_homePage"
             app:destination="@id/homePage" />
+        <action
+            android:id="@+id/action_sendMoney_to_homePage2"
+            app:destination="@id/homePage2" />
+        <action
+            android:id="@+id/action_sendMoney_to_homePage22"
+            app:destination="@id/homePage2" />
     </fragment>
     <fragment
         android:id="@+id/profilePage"
@@ -91,10 +103,33 @@
         <action
             android:id="@+id/action_profilePage_to_homePage"
             app:destination="@id/homePage" />
+        <action
+            android:id="@+id/action_profilePage_to_homePage2"
+            app:destination="@id/homePage2" />
     </fragment>
     <activity
         android:id="@+id/README"
         android:name="com.example.examen_m5_paulamarkov.View.README"
         android:label="activity_readme"
         tools:layout="@layout/activity_readme" />
+    <fragment
+        android:id="@+id/homePage2"
+        android:name="com.example.examen_m5_paulamarkov.View.HomePage"
+        android:label="HomePage" >
+        <action
+            android:id="@+id/action_homePage2_to_requestMoney"
+            app:destination="@id/requestMoney" />
+        <action
+            android:id="@+id/action_homePage2_to_profilePage"
+            app:destination="@id/profilePage" />
+        <action
+            android:id="@+id/action_homePage2_to_sendMoney"
+            app:destination="@id/sendMoney" />
+        <action
+            android:id="@+id/action_homePage2_to_requestMoney2"
+            app:destination="@id/requestMoney" />
+        <action
+            android:id="@+id/action_homePage2_to_loginPage"
+            app:destination="@id/loginPage" />
+    </fragment>
 </navigation>

@@ -91,6 +91,31 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
 
 
+//test
+
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.9.3")
+
+    testImplementation ("org.mockito:mockito-core:3.6.0")
+    testImplementation ("org.mockito:mockito-inline:3.6.0")
+    testImplementation ("io.mockk:mockk:1.12.0")
+
+    testImplementation ("org.robolectric:robolectric:4.9")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")
+    testImplementation ("com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-alpha03@jar")
+    testImplementation ("androidx.test:core-ktx:1.5.0")
+    testImplementation ("androidx.test.ext:junit-ktx:1.1.5")
+
+
+    // For Robolectric tests.
+    testImplementation ("com.google.dagger:hilt-android-testing:2.44")
+    testAnnotationProcessor ("com.google.dagger:hilt-android-compiler:2.44")
+
+    // For instrumented tests.
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.44")
+    androidTestAnnotationProcessor ("com.google.dagger:hilt-android-compiler:2.44")
+
+
 
 
 }

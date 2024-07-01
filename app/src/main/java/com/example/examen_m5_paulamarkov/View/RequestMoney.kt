@@ -59,7 +59,7 @@ class RequestMoney : Fragment(){
 
 
                     //Toast.makeText(requireContext(), "Cuenta Creada", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_requestMoney_to_homePage)
+                    findNavController().navigate(R.id.action_requestMoney_to_homePage2)
 
                 }else {
                     val a= 0

@@ -7,75 +7,41 @@ import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.examen_m5_paulamarkov.Model.Local.Data.SendMoneyLocal
+import com.example.examen_m5_paulamarkov.Model.Local.TransaccionItem
 import com.example.examen_m5_paulamarkov.databinding.ItemRecyclerBinding
 
-class MiAdapter: RecyclerView.Adapter<MiAdapter.ListaTransaccionesVH>() {
+class MiAdapter(var Lista:MutableList<TransaccionItem>):
+    RecyclerView.Adapter<MiAdapter.MiViewHolder>() {
 
-    private var listaTransaccion = listOf<SendMoneyLocal>()
-    private val transaccionSelected = MutableLiveData<SendMoneyLocal>() //Cambiar a local
+    lateinit var onItemClickListener: (TransaccionItem) -> Unit
 
-
-    //Actualiza la lista de transacciones mostradas en el RecyclerView.
-    fun update(transaccion: List<SendMoneyLocal>){
-        listaTransaccion = transaccion
-        notifyDataSetChanged()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MiAdapter.MiViewHolder {
+        val binding = ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MiViewHolder(binding)
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListaTransaccionesVH {
-        return ListaTransaccionesVH(ItemRecyclerBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onBindViewHolder(holder: MiAdapter.MiViewHolder, position: Int) {
+        val v_transaccion: TransaccionItem = Lista[position]
+        holder.bind(v_transaccion)
     }
 
-    override fun getItemCount() = listaTransaccion.size
-
-    override fun onBindViewHolder(holder: ListaTransaccionesVH, position: Int) {
-        val transaccion = listaTransaccion[position]
-        holder.bind(transaccion)
+    override fun getItemCount(): Int {
+        return Lista.size
     }
 
+    inner class MiViewHolder(private var binding: ItemRecyclerBinding):
+        RecyclerView.ViewHolder(binding.root){
 
-    //Clase interna
-    inner class ListaTransaccionesVH(private val binding: ItemRecyclerBinding):
-        RecyclerView.ViewHolder(binding.root), View.OnClickListener{
+        fun bind(item: TransaccionItem){
+            binding.itNombre.text = item.ti_nombre
+            binding.itFecha.text = item.ti_fecha
+            binding.itValor.text = item.ti_cantidad
+            binding.itImg.setImageResource(item.ti_foto)
 
-        //Vincular los datos de la transacción al ViewHolder.
-
-            fun bind(transaccion: SendMoneyLocal){
-
-               /* //Flecha según el tipo de transacción
-                val imgFlecha = when(transaccion.type){
-                    "topup" -> R.drawable.send_icon
-                    "payment" -> R.drawable.request_icon
-                    else -> null
-                }
-
-                Glide.with(binding.itImg).load(imgFlecha).centerCrop().into(binding.itImg)
-*/
-
-                binding.itNombre.text = transaccion.id.toString()
-                binding.itFecha.text = transaccion.userId.toString()
-                binding.itValor.text = transaccion.amount
-
-           /* Glide.with(binding.imgUsuario).load(R.drawable.userp).centerCrop().into(binding.imgUsuario)
-            binding.nombreUsuario.text = transaccion.concept
-            binding.fecha.text = transaccion.createdAt
-            binding.monto.text = transaccion.amount
-
-            //Flecha según el tipo de transacción
-            val imgFlecha = when(transaccion.type){
-                "topup" -> R.drawable.arrow_greenp
-                "payment" -> R.drawable.arrow_redp
-                else -> null
-            }
-
-            Glide.with(binding.flecha).load(imgFlecha).centerCrop().into(binding.flecha)
-            */
-
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            transaccionSelected.value = listaTransaccion[adapterPosition]
+            // binding.root.setOnClickListener {
+            //    onItemClickListener(item)
+            // }
         }
     }
+
 }

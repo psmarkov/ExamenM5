@@ -18,7 +18,7 @@ fun fromInternetWalletLocal( Lista: List<SendMoneyResponse>) :List<SendMoneyLoca
             type = it.type,
             accountId = it.accountId,
             userId = it.userId,
-            toaccountid = it.toaccountid,
+            to_account_id = it.to_account_id,
             updatedAt = it.updatedAt,
             createdAt = it.createdAt
 

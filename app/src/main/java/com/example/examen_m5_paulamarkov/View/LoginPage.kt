@@ -82,7 +82,7 @@ class LoginPage : Fragment(){
 
 
 
-                    view?.findNavController()?.navigate(R.id.action_loginPage_to_homePage)
+                    view?.findNavController()?.navigate(R.id.action_loginPage_to_homePage2)
 
 
                 } else {

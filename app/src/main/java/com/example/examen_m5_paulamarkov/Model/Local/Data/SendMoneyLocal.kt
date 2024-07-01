@@ -16,8 +16,8 @@ data class SendMoneyLocal(
     val accountId : Int,
     val userId : Int,
 
-    @SerializedName("to_account_id")
-    val toaccountid : Int,
+
+    val to_account_id : Int,
 
     val updatedAt : String,
     val createdAt : String
